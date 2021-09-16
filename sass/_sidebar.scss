@@ -1,0 +1,109 @@
+.sidebar {
+    background-color: $color-secondary-dark;
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / 13;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+
+
+    @media only screen and (max-width: $bp-large) {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+.nav-btn {
+    border: none;
+    border-radius: 0;
+
+    background-color: #fff;
+    width: 4.5rem;
+    height: 2px;
+    margin-top: 4rem;
+    position: fixed;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+    background-color: #fff;
+    width: 4.5rem;
+    height: 2px;
+    content: '';
+    display: block;
+    }
+
+    &::before {
+        transform: translateY(-1.4rem);
+    }
+
+    &::after {
+        transform: translateY(1.3rem);
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        margin: 0;
+        margin-right: 2rem;
+
+        &::before {
+            transform: translateY(-1.2rem);
+        }
+    
+        &::after {
+            transform: translateY(1rem);
+        }
+    }
+}
+
+.menus {
+    background-color: $color-secondary-dark;
+    // grid-column: sidebar-start / center-start;
+    grid-row: 1 / 11;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+
+    width: 100%;
+    margin-left: -100%;  
+    transition: all .5s ease;
+    padding: 3rem;
+    z-index: 10;
+
+    & ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    
+    & ul li {
+        list-style-type: none;
+        display: flex;
+        // justify-content: space-evenly;
+
+        & a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $color-grey-light-1;
+        }
+    }
+}
+
+
+#sidebar h5 {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-top: 40rem;
+    font-size: 2rem;
+    writing-mode: vertical-rl;
+    color: #f2b441;
+    text-orientation: mixed;
+}

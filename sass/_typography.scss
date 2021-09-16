@@ -1,0 +1,80 @@
+//extend works this way in-order to prevent DRY 
+%heading {
+    font-family: $font-display;
+    font-weight: 400;
+}
+
+.heading-1 {
+    //extend means copy. Syntax is here
+    @extend %heading;
+    font-size: 4.5rem;
+    color: $color-grey-light-1;
+    line-height: 1;
+}
+
+
+.heading-2 {
+    @extend %heading;
+    font-size: 4rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+
+    &--light { color: $color-grey-light-1; }
+    &--dark { color: $color-grey-dark-1; }
+}
+
+
+.heading-3 {
+    @extend %heading;
+    font-size: 1.6rem;
+    color: $color-primary;
+    text-transform: uppercase;
+}
+
+
+.heading-4 {
+    @extend %heading;
+    font-size: 1.9rem;
+
+    &--light { color: $color-grey-light-1; }
+    &--dark { color: $color-grey-dark-1; }
+}
+
+.heading-5 { 
+    @extend %heading;
+    font-size: 1.7rem;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.heading-6 {
+    @extend %heading;
+    font-size: 3.5rem;
+    color: $color-primary;
+    text-transform: uppercase;
+}
+
+.btn {
+    background-color: $color-primary;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-family: $font-display;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 1.8rem 3rem;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+}
+
+
+.mb-sm { margin-bottom: 2rem; }
+.mb-md { margin-bottom: 3rem; }
+.mb-lg { margin-bottom: 4rem; }
+.mb-xl { margin-bottom: 8rem; }

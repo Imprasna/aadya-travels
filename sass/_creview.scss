@@ -1,0 +1,104 @@
+.creview {
+    grid-column: full-start / full-end;
+    // height: 40vh;
+    background: $color-grey-light-1;
+
+
+    & > h1 {
+        text-align: center;
+        font-size: 4rem;
+        font-weight: 700;
+        padding-top: 2rem;
+    }
+
+    & > P {
+        margin: 0 auto;
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 500;
+        max-width: calc(100% - 60vw);
+        width: calc(100% - 40vw);
+        padding: 2rem 0;
+        letter-spacing: .5px;
+        line-height: 1.3em;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            max-width: calc(100% - 10vw);
+            width: calc(100% - 20vw);
+            text-align: justify;
+            line-height: 1.3em;
+        }
+    
+        @media only screen and (max-width: $bp-small) {
+            max-width: calc(100% - 10vw);
+            width: calc(100% - 20vw);
+            text-align: justify;
+            line-height: 1.3em;
+        }
+    }
+
+    
+}
+
+.owl-stage {
+    margin: 0 auto;
+}
+
+.rev {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+    width: 100%;
+
+    & > img {
+        border-radius: 50%;
+        
+        @media only screen and (max-width: $bp-medium) {
+            padding: 1rem 2rem;
+        }
+            
+        @media only screen and (max-width: $bp-small) {
+            padding: 1rem 2rem;
+        }
+    }
+
+    & > h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    & > p {
+        font-size: 1.5rem;
+        letter-spacing: .5px;
+        line-height: 1.3em;
+        text-align: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            padding: 1rem 2rem;
+        }
+            
+        @media only screen and (max-width: $bp-small) {
+            padding: 1rem 2rem;
+        }
+    }
+
+    & > blockquote {
+        font-size: 2rem;
+        font-weight: 700;
+        padding-top: 1rem;
+    }
+
+    
+
+}
+
+.map {
+    grid-column: full-start / full-end;
+    padding: 2rem;
+}

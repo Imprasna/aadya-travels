@@ -1,0 +1,691 @@
+.homes {
+    grid-column: center-start / center-end;
+    margin: 5rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    grid-gap: 7rem;
+
+    overflow: hidden;
+    position: relative;
+    // 
+    // display: none;
+}
+
+.home {
+    background-color: $color-grey-light-1;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 3.5rem;
+
+    position: relative;
+
+    &__img {
+        width: 100%;
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+        z-index: 1;
+    }
+
+    &__like {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+        fill: $color-primary;
+        width: 2.5rem;
+        height: 2.5rem;
+        z-index: 2;
+        justify-self: end;
+        margin: 1rem;
+    }
+
+    &__name {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        justify-self: center;
+        align-self: end;
+
+        width: 80%;
+        font-family: $font-display;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 1.25rem;
+        background-color: $color-secondary;
+        color: #fff;
+        font-weight: 400;
+        z-index: 3;
+        transform: translateY(50%);
+    }
+
+    &__location, 
+    &__rooms {
+        margin-top: 2.5rem;
+    }
+
+    &__location, 
+    &__rooms,
+    &__area,
+    &__price {
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+            fill: $color-primary;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 1rem;
+        }
+
+        p {
+
+        }
+    }
+
+    &__btn {
+        grid-column: 1 / -1;
+        height: 5vh;
+    }
+}
+
+.homes_title {
+    grid-column: 2 / -1;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 600;
+    padding-top: 2rem;
+    // font-family: 'Allison', cursive;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        grid-column: 1 / -1;
+    }
+}
+
+.homes_description {
+    text-align: center;
+    grid-column: 2 / -1;
+    font-size: 3rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        grid-column: 1 / -1;
+    }
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 5vw;
+    height: 5vh;
+    background: $color-secondary-dark;
+    transition: .5s;
+
+    &:hover {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+
+        opacity: .9;
+        z-index: 1;
+
+        & ~ .content{
+            opacity: 1;
+            overflow: visible;
+            transition: .2s;
+            transition-delay: .5s;
+        }
+        
+    }
+
+    &::before {
+        content: 'Read';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        color: #fff;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition-delay: .5s;
+    }
+
+    &:hover::before {
+        display: none;
+        transition: 0s;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        width: 8vw;
+        height: 5vh;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        // padding: 5rem;
+        width: 8vw;
+        height: 5vh;
+    }
+}
+
+.content {
+    padding: 2rem;
+    box-sizing: border-box;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    visibility: visible;
+    transition: 0s;
+    color: #fff;
+    // display: none;
+    overflow: hidden;
+    position: absolute;
+
+    & > h2 {
+        font-size: 1.7rem;
+
+    }
+
+    & > p {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-size: 1.5rem;
+        letter-spacing: .5px;
+        padding-top: 2rem;
+    }
+}
+
+// .homes .overlay:hover ~ .content{
+//     opacity: 1;
+//     overflow: visible;
+//     transition: .2s;
+//     transition-delay: .5s;
+// }
+
+// .overlay:hover ~ .content {
+//     opacity: 1;
+//     overflow: visible;
+//     transition: .2s;
+//     transition-delay: .5s;
+// }
+
+.w-map {
+    grid-column: 1 / -1;
+    // height: 60vh;
+    width: 100%;
+    position: relative;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        grid-column: 1 / -1;
+    }
+
+}
+
+.wmap {
+    // position: relative;
+    padding: 6rem 0;
+    // width: 100%;
+}
+
+.wmap > img {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+}
+
+.m1,
+.m2,
+.m3,
+.m4,
+.m5
+{
+    position: absolute;
+}
+
+.m1 {
+    position: absolute;
+    left: 19rem;
+    top: 18rem;
+
+    @media only screen and (max-width: $bp-largest) {
+        top: 14rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        left: 15rem;
+        top: 15rem;
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        left: 5rem;
+        top: 9rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+
+    &:hover ~ .point-1 {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.point-1 {
+    position: absolute;
+    top: 7rem;
+    max-width: 10vw;
+    left: 21rem;
+    background: $color-primary-dark;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+
+    & > h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        color: $color-secondary-dark;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        left: 22rem;
+        top: 7rem;
+        max-width: 20vw;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        left: 19rem;
+        top: 6rem;
+        max-width: 30vw;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        left: 7rem;
+        top: 1rem;
+        max-width: 50vw;
+    }
+}
+
+.m2 {
+    position: absolute;
+    left: 33rem;
+    top: 33rem;
+
+    &:hover ~ .point-2 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        top: 28rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        left: 24rem;
+        top: 26rem;
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        left: 10rem;
+        top: 14rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+}
+
+.point-2 {
+    position: absolute;
+    top: 20rem;
+    max-width: 10vw;
+    left: 16rem;
+    background: $color-primary-dark;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+
+    & > h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        color: $color-secondary-dark;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        max-width: 20vw;
+        top: 22rem;
+        left: 6rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        left: 28rem;
+        top: 18rem;
+        max-width: 30vw;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        left: 12rem;
+        top: 5rem;
+        max-width: 50vw;
+    }
+}
+
+.m3 {
+    position: absolute;
+    right: 17rem;
+    top: 37rem;
+
+    &:hover ~ .point-3 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        top: 34rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        right: 11rem;
+        top: 30rem;
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        right: 4rem;
+        top: 16rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+}
+
+.point-3 {
+    position: absolute;
+    top: 25rem;
+    max-width: 10vw;
+    right: 19rem;
+    background: $color-primary-dark;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+
+    & > h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        color: $color-secondary-dark;
+    }
+
+    
+    @media only screen and (max-width: $bp-largest) {
+        top: 27rem;
+        right: 21rem;
+        max-width: 20vw;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        right: 15rem;
+        top: 22rem;
+        max-width: 30vw;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        right: 6rem;
+        top: 7rem;
+        max-width: 50vw;
+    }
+}
+
+.m4 {
+    position: absolute;
+    right: 51rem;
+    top: 25rem;
+
+    &:hover ~ .point-4 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        left: 43rem;
+        top: 20rem;
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        left: 18rem;
+        top: 12rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+}
+
+.point-4 {
+    position: absolute;
+    top: 13rem;
+    max-width: 10vw;
+    left: 39rem;
+    background: $color-primary-dark;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+
+    & > h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        color: $color-secondary-dark;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        max-width: 20vw;
+        top: 18rem;
+        left: 28rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        left: 18rem;
+        top: 12rem;
+        max-width: 30vw;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        left: 20rem;
+        top: 1rem;
+        max-width: 50vw;
+    }
+}
+
+.m5 {
+    position: absolute;
+    right: 36rem;
+    top: 18rem;
+
+    &:hover ~ .point-5 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        right: 26rem;
+        top: 16rem;
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        right: 11rem;
+        top: 9rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+}
+
+
+.point-5 {
+    position: absolute;
+    top: 5rem;
+    max-width: 10vw;
+    right: 19rem;
+    background: $color-primary-dark;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+
+    & > h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        color: $color-secondary-dark;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        max-width: 20vw;
+        top: 10rem;
+        right: 9rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        right: 0rem;
+        top: 8rem;
+        max-width: 30vw;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        right: 13rem;
+        top: 1rem;    
+        max-width: 50vw;
+    }
+}
+
+
+.m6 {
+    position: absolute;
+    right: 52rem;
+    top: 13rem;
+
+    &:hover ~ .point-6 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        right: 37rem;
+        top: 12rem;
+        width: 8rem;
+        height: 8rem;
+        object-fit: contain;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        right: 17rem;
+        top: 7rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+    }
+}
+
+
+.point-6 {
+    position: absolute;
+    top: 1rem;
+    max-width: 10vw;
+    right: 55rem;
+    background: $color-primary-dark;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+
+    & > h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+    }
+
+    & > p {
+        font-size: 1.3rem;
+        color: $color-secondary-dark;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+        max-width: 20vw;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        right: 11rem;
+        top: 4rem;    
+        max-width: 30vw;
+    }
+        
+    @media only screen and (max-width: $bp-small) {
+        right: 20rem;
+        top: 8rem;
+        max-width: 50vw;
+    }
+}
