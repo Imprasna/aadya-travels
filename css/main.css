@@ -416,6 +416,7 @@ body {
 @media only screen and (max-width: 37.5em) {
   .support__2 > h1 {
     font-size: 3rem;
+    margin-bottom: 5rem;
   }
 }
 
